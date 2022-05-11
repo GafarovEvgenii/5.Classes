@@ -28,40 +28,37 @@ class PrintEditionItem {
 }
 
 class Magazine extends PrintEditionItem {
-    constructor(name, releaseDate, pagesCount, state) {
-        super(name, releaseDate, pagesCount, state, "magazine");
+    constructor(name, releaseDate, pagesCount) {
+        super(name, releaseDate, pagesCount);
         this.type = "magazine";
     }
 }
 
 class Book extends PrintEditionItem {
-    constructor(author, name, releaseDate, pagesCount, state) {
-        super(name, releaseDate, pagesCount, state, "book");
+    constructor(author, name, releaseDate, pagesCount) {
+        super(name, releaseDate, pagesCount);
         this.author = author;
         this.type = "book";
     }
 }
 
 class NovelBook extends Book {
-    constructor(author, name, releaseDate, pagesCount, state) {
-        super(author, name, releaseDate, pagesCount, state, "novel");
-        this.author = author;
+    constructor(author, name, releaseDate, pagesCount) {
+        super(author, name, releaseDate, pagesCount);
         this.type = "novel";
     }
 }
 
 class FantasticBook extends Book {
-    constructor(author, name, releaseDate, pagesCount, state) {
-        super(author, name, releaseDate, pagesCount, state, "fantastic");
-        this.author = author;
+    constructor(author, name, releaseDate, pagesCount) {
+        super(author, name, releaseDate, pagesCount);
         this.type = "fantastic";
     }
 }
 
 class DetectiveBook extends Book {
-    constructor(author, name, releaseDate, pagesCount, state) {
-        super(author, name, releaseDate, pagesCount, state, "detective");
-        this.author = author;
+    constructor(author, name, releaseDate, pagesCount) {
+        super(author, name, releaseDate, pagesCount);
         this.type = "detective";
     }
 }
@@ -105,13 +102,8 @@ class Student {
       this.subject = {};
    }
 
-   setSubject(subjectName) {
-      this.subject[subjectName] = [];
-   }
-
    addMark(mark, subjectName) {
-      const check = mark > 0 && mark < 6 && Number.isInteger(mark);
-      if(check === false){
+     if(!(mark > 0 && mark < 6 && Number.isInteger(mark))){
          console.log("Ошибка, оценка должна быть числом от 1 до 5")
       } else if(this.subject[subjectName] === undefined){
          this.subject[subjectName] = [mark];
